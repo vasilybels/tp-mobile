@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Dimensions, Pressable, StyleSheet, Text } from "react-native";
 
 type TipButtonProps = {
     tipAmount: number;
@@ -20,17 +20,30 @@ export default function TipButton ({ tipAmount, totalAmount } : TipButtonProps) 
 }
 
 
+const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
     buttonContainer: {
+        flex: 1,
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        marginVertical: 8,
+        width: "100%",
+        paddingHorizontal: 16,
+        paddingVertical: 16,
+        gap: 24,
     },
     button: {
-        backgroundColor: "#2196F3",
-        paddingVertical: 12,
-        paddingHorizontal: 24,
-        borderRadius: 8,
+        backgroundColor: "#ffffff",
+        paddingVertical: height * 0.08, // 8% of screen height
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: "#000000",
         alignItems: "center",
+        justifyContent: "center",
+        width: width * 0.9, // 90% of screen width
+        maxWidth: 500,
+        marginVertical: 12,
+        elevation: 2,
     },
 });

@@ -1,21 +1,24 @@
+import Bill from '@/components/bill_display/Bill';
 import Dashboard from '@/components/Dashboard';
-import { Text, View } from "react-native";
+import { ScrollView } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <ScrollView contentContainerStyle={{
+      flexGrow: 1,
+      backgroundColor: "#fff",
+      justifyContent: "center",
+      alignItems: "center",
+    }}>
+      <Bill 
+        dishes={{ "Pasta": 12.99, "Salad": 8.99, "Soda": 2.50 }}
+        totalAmount={100}
+        serverName="John Doe"
+      />
       <Dashboard
         totalAmount={100}
         standardTips={[15, 20, 25]}
       />
-      <Text>Welcome to the Tip Calculator!</Text>
-      <Text>Choose a tip amount to calculate your total.</Text>
-    </View>
+    </ScrollView>
   );
 }
